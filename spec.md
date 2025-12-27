@@ -36,15 +36,15 @@ affiliation|文字列|所属組織
 
 ### HTTPメソッドとリソース名一覧
 
-HTTPメソッド|リソース名|機能
--|-|-
-GET|/onepiece|キャラクター一覧を取得・表示
-GET|/detail/:number|キャラクターの詳細を表示
-GET|/create|キャラクター追加画面の表示
-POST|/create|新しいキャラクターデータを登録
-GET|/edit/:number|キャラクター編集画面の表示
-POST|/update/:number|編集したキャラクターデータの表示
-GET|/delete/:number|キャラクターを削除し，一覧表示
+HTTPメソッド|リソース名
+-|-
+GET|/onepiece
+GET|/detail/:number
+GET|/create
+POST|/create
+GET|/edit/:number
+POST|/update/:number
+GET|/delete/:number
 
 ### リソース名ごとの機能の詳細
 #### /onepiece
