@@ -1,0 +1,19 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新規キャラクター登録</title>
+</head>
+<body>
+    <h2>新しいキャラクターを登録する</h2>
+    <form action="/create" method="POST">
+        <p>名前: <input type="text" name="name"></p>
+        <p>悪魔の実: <input type="text" name="devil_fruit"></p>
+        <p>懸賞金: <input type="text" name="bounty"></p>
+        <p>所属組織: <input type="text" name="affiliation"></p>
+        
+        <input type="submit" value="登録">
+    </form>
+    <a href="/onepiece">キャラクター一覧に戻る</a>
+</body>
+</html>

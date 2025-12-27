@@ -1,0 +1,19 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新規映画登録</title>
+</head>
+<body>
+    <h2>新しい映画を登録する</h2>
+    <form action="/create" method="POST">
+        <p>タイトル: <input type="text" name="title"></p>
+        <p>ジャンル: <input type="text" name="genre"></p>
+        <p>興行収入: <input type="text" name="income"></p>
+        <p>監督: <input type="text" name="director"></p>
+        
+        <input type="submit" value="登録">
+    </form>
+    <a href="/movie">映画一覧に戻る</a>
+</body>
+</html>

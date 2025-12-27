@@ -10,25 +10,27 @@
 
 ```mermaid
 stateDiagram-v2
-[*] --> /onepiece_character:キャラクター一覧
-/onepiece_character --> /character_detail:キャラクター詳細
-/character_detail --> /character_add:追加
-/character_detail --> /character_edit:編集
-/character_detail --> /character_delete:削除
-/onepiece_character --> /character_add:追加
-/character_add --> /character_registration:登録
-/character_edit --> /character_registration:登録
-/character_delete --> /character_registration:登録
+[*] --> キャラクター一覧表示
+キャラクター一覧表示 -->キャラクター詳細:名前からリンク
+キャラクター詳細 --> 編集画面:編集と書かれたリンク
+編集画面 -->登録:登録ボタン
+登録 --> キャラクター一覧表示
+キャラクター詳細 -->削除:削除と書かれたリンク
+削除 --> キャラクター一覧表示
+キャラクター一覧表示 -->追加画面:追加と書かれたリンク
+追加画面 -->登録:登録ボタン
+
 
 ```
+
 
 ### データ構造
 項目名 | 型 | 内容
 -|-|-
-character_id|数値|キャラクターを識別するid
+id|数値|キャラクターを識別するid
 name|文字列|キャラクター名
 devil_fruit|文字列|悪魔の実
-bounty|数値|最新の懸賞金（ベリー）
+bounty|文字列|最新の懸賞金（ベリー）
 affiliation|文字列|所属組織
 
 
@@ -36,12 +38,33 @@ affiliation|文字列|所属組織
 
 HTTPメソッド|リソース名|機能
 -|-|-
-GET|/onepiece_character|キャラクター一覧を取得・表示
-GET|/character_detail|キャラクターの詳細を表示
-POST|/character_add|新しいキャラクターデータを登録する
-POST|/character_edit|キャラクターの編集
-POST|/character_delete|キャラクターの削除
-POST|/character_registration|キャラクターの登録後表示
+GET|/onepiece|キャラクター一覧を取得・表示
+GET|/detail/:number|キャラクターの詳細を表示
+GET|/create|キャラクター追加画面の表示
+POST|/create|新しいキャラクターデータを登録
+GET|/edit/:number|キャラクター編集画面の表示
+POST|/update/:number|編集したキャラクターデータの表示
+GET|/delete/:number|キャラクターを削除し，一覧表示
 
+### リソース名ごとの機能の詳細
+#### /onepiece
+機能としては，まず，character配列に格納されているすべてを読み込む．次に，読み込んだデータをループ処理し，各キャラクターのID（id）と名前（name）をリスト形式で画面に表示する．また，各キャラクター名には詳細画面（GET/detail/:number）へのハイパーリンクを設定する．画面内には，追加画面（GET/create）への「追加」ハイパーリンクを配置する．さらに，他のリソース（POST/create，GET/delete，POST/update）から呼び出された際，引数として渡されたmessage変数の内容を画面上部に緑色の強調テキストで表示する．
 
+#### /detail/:number
+機能としては，まず，URLパラメータから取得したnumberを基に，character配列から該当するオブジェクトを取得する．取得したオブジェクトから名前（name），悪魔の実（devil_fruit），懸賞金（bounty），所属組織（affiliation）をテーブル形式で画面に表示する．取得したnumberをidx変数として渡し，編集画面（GET/edit/:number），削除処理（GET/delete/:number），一覧表示（GET/onepiece）へのハイパーリンクを配置する．この画面は一覧表示画面（GET/onepiece）のキャラクター名のハイパーリンクをクリックすることで遷移し表示される．
+
+#### GET/create
+機能としては，まず，新規キャラクターのデータを入力するための画面を表示する．この画面は，一覧表示画面（GET /onepiece）に配置された「追加」ハイパーリンクをクリックすることで遷移し表示される．表示内容としては，名前（name），悪魔の実（devil_fruit），懸賞金（bounty），所属組織（affiliation）を入力するためのテキストボックスを持つ画面を表示する．このフォームの「登録」ボタンをクリックすることで，データ登録処理（POST/create）へリクエストを送信する仕組みとなっている．また，登録を行わずに一覧表示画面（GET /onepiece）へ戻るためのハイパーリンクを配置する．
+
+#### POST/create
+機能としては，まず，追加画面（GET/create）から送信された各データ（名前，悪魔の実，懸賞金，所属組織）を取得する．次に，現在のcharacter配列の要素数に基づいて新しいID（id）を生成し，取得したデータと共に一つのオブジェクトとして配列の末尾に追加する．処理終了後は，一覧表示画面（GET/onepiece）を再描画し，その際に「新しく登録しました！」というメッセージを引数として渡すことで，画面上部に処理結果を強調表示する．
+
+#### /edit/:number
+機能としては，まず，URLパラメータから取得したnumberを基に，character配列から修正対象のオブジェクトを取得する．次に，取得したデータをdata，numberをidxとして渡す．表示内容としては，名前（name），悪魔の実（devil_fruit），懸賞金（bounty），所属組織（affiliation）の各入力項目に対し，value属性を用いて現在の登録内容を初期値としてセットした状態で画面に表示する．この画面の「登録」ボタンをクリックすることで，更新処理（POST/update/:number）へリクエストを送信する．また，修正を行わずに一覧表示画面（GET /onepiece）へ戻るためのハイパーリンクを配置する．
+
+#### /update/:number
+機能としては，まず，編集画面（GET /edit/:number）から送信された更新後のデータを受け取る．次に，URLパラメータから取得したnumberを基に，character配列内の該当するオブジェクトを参照し，各データ（名前，悪魔の実，懸賞金，所属組織）の内容を新しい値で上書き（更新）する．処理終了後は，一覧表示画面（GET/onepiece）を再描画し，その際に「編集しました！」というメッセージを引数として渡すことで，画面上部に処理結果を強調表示する．
+
+#### /delete/:number
+機能としては，まず，詳細画面（GET/detail/:number）に配置された「削除」ハイパーリンクをクリックすることで，URLパラメータから削除対象のインデックス番号を取得する．次に，取得した番号を基にcharacter配列から該当する要素を1件削除する．処理終了後は，一覧表示画面（GET/onepiece）を再描画し，その際に「削除しました！」というメッセージを引数として渡すことで，画面上部に処理結果を強調表示する．
 

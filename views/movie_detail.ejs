@@ -1,0 +1,20 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.title %></title>
+</head>
+<body>
+  <h2><%= data.title %>の詳細</h2>
+  <table>
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><td>タイトル</td><td><%= data.title %></td></tr>
+    <tr><td>ジャンル</td><td><%= data.genre %></td></tr>
+    <tr><td>興行収入</td><td><%= data.income %></td></tr>
+    <tr><td>監督</td><td><%= data.director %></td></tr>
+  </table>
+  <a href="/edit/<%= idx %>">編集</a>
+  <a href="/delete/<%= idx %>">削除</a>
+  <a href="/movie">映画一覧に戻る</a>
+</body>
+</html>

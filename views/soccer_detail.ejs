@@ -1,0 +1,20 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %></title>
+</head>
+<body>
+  <h2><%= data.name %>の詳細</h2>
+  <table>
+    <tr><th>項目</th><th>データ</th></tr>
+    <tr><td>名前</td><td><%= data.name %></td></tr>
+    <tr><td>ポジション</td><td><%= data.position %></td></tr>
+    <tr><td>市場価値</td><td><%= data.market_value %></td></tr>
+    <tr><td>所属クラブチーム</td><td><%= data.club %></td></tr>
+  </table>
+  <a href="/edit/<%= idx %>">編集</a>
+  <a href="/delete/<%= idx %>">削除</a>
+  <a href="/soccer">選手一覧に戻る</a>
+</body>
+</html>

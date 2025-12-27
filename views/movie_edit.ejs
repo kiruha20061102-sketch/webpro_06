@@ -1,0 +1,21 @@
+<!Doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title><%= data.title %></title>
+</head>
+<body>
+  <h2><%= data.title %>の編集</h2>
+  <form action="/update/<%= idx %>" method="POST">
+    <table>
+      <tr><th>項目</th><th>データ</th></tr>
+      <tr><td>タイトル</td><td><input type="text" name="title" value="<%= data.title %>"></td></tr>
+      <tr><td>ジャンル</td><td><input type="text" name="genre" value="<%= data.genre %>"></td></tr>
+      <tr><td>興行収入</td><td><input type="text" name="income" value="<%= data.income %>"></td></tr>
+      <tr><td>監督</td><td><input type="text" name="director" value="<%= data.director %>"></td></tr>
+    </table>
+    <input type="submit" value="登録">
+  </form>
+  <a href="/movie/">映画一覧に戻る</a>
+</body>
+</html>

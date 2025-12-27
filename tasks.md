@@ -5,15 +5,16 @@
   - [x] データ構造の決定 :thinking:
   - [x] ページ構造の検討 :thinking:
   - [x] ページ遷移の検:thinking:
-  - [ ] ｍ成功表示の検討:thinking:
+  - [ ] 追加・削除・編集後に表示する内容の検討:thinking:
   - [x] HTTPメソッドとリソース名の決定
   - [x] ページ遷移図の作成 :writing_hand:
   - [x] ページ構造の決定
   - [x] ドキュメントの構成の検討 :thinking:
   - [x] 概要 :writing_hand:
-  - [x] HTTPメソッドとリソース名一覧 :writing_hand:
+  - [x] HTTPメソッドとリソース名一覧:writing_hand:
   - [x] データ構造 :writing_hand:
-  - [x] リソース名ごとの機能の詳細 :writing_hand:
+  - [ ] リソース名ごとの機能の詳細 :writing_hand:
+  - [ ] 追加・削除・編集後に表示する内容:writing_hand:
 - [ ] 管理者向けドキュメントの構成
   - [ ] インストールから起動までの手順確認 :computer:
   - [ ] インストール方法 :writing_hand:
