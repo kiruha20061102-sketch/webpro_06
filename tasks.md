@@ -20,15 +20,15 @@
   - [x] 起動できない場合 :writing_hand:
   - [x] 終了方法 :writing_hand:
   - [x] 分かっている不具合 :writing_hand:
-- [ ] 利用者向けドキュメントの作業
-  - [ ] 構成の検討 :thinking:
-  - [ ] スクリーンショットの保存と整理 :computer:
-  - [ ] 概要 :writing_hand:
-  - [ ] 使用できる機能 :writing_hand:
-  - [ ] 起動画面 :writing_hand:
-  - [ ] 一覧表示 :writing_hand:
-  - [ ] 詳細表示 :writing_hand:
-  - [ ] データ追加 :writing_hand:
-  - [ ] データ削除 :writing_hand:
-  - [ ] データ編集 :writing_hand:
-- [ ] 提出 :tada:
+- [x] 利用者向けドキュメントの作業
+  - [x] 構成の検討 :thinking:
+  - [x] スクリーンショットの保存と整理 :computer:
+  - [x] 概要 :writing_hand:
+  - [x] 使用できる機能 :writing_hand:
+  - [x] 起動画面 :writing_hand:
+  - [x] 一覧表示 :writing_hand:
+  - [x] 詳細表示 :writing_hand:
+  - [x] データ追加 :writing_hand:
+  - [x] データ削除 :writing_hand:
+  - [x] データ編集 :writing_hand:
+- [x] 提出 :tada:

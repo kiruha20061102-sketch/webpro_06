@@ -14,7 +14,7 @@ let movie = [
   { id:4, title:"国宝", genre:"人間ドラマ", income:"173億円", director:"李相日"},
   { id:5, title:"君の膵臓をたべたい", genre:"ラブロマンス", income:"35.2億円", director:"月川翔"},
   { id:6, title:"グランメゾン・パリ", genre:"人間ドラマ", income:"42億円", director:"塚原あゆ子"},
-  { id:7, title:"ズートピア2", genre:"ファンタジー", income:"133億", director:"ジャレド・ブッシュとバイロン・ハワード"},
+  { id:7, title:"ズートピア2", genre:"ファンタジー", income:"133億円", director:"ジャレド・ブッシュとバイロン・ハワード"},
 ];
 
 

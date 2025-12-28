@@ -17,7 +17,7 @@ Node.jsがインストールされている環境で，必要なモジュール�
 ### サーバーの起動
 下記の操作をターミナルで行い，各システムのサーバーを起動し，8080番ポートを立ち上げる．
 
-\$node onepiece.js  # または soccer.js,movie.js
+\$ node onepiece.js  # または soccer.js，movie.js
 
 ### 終了方法
 起動中のターミナルでCtrl + Cを押下することで，サーバープロセスを終了する．
